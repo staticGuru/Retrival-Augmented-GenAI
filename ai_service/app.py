@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import os
 from fastapi.middleware.cors import CORSMiddleware
+import openai
 
 import logging
 from dotenv import find_dotenv, load_dotenv
@@ -15,6 +16,14 @@ from langchain.prompts import (
     PromptTemplate,
     SystemMessagePromptTemplate,
 )
+
+
+ROLE_CLASS_MAP = {"assistant": AIMessage, "user": HumanMessage, "system": SystemMessage}
+
+load_dotenv(find_dotenv())
+openai.api_key = os.getenv("OPENAI_API_KEY")
+CONNECTION_STRING = "postgresql+psycopg2://admin:admin@postgres:5432/microvectordb"
+COLLECTION_NAME = "microvectordb"
 
 
 
