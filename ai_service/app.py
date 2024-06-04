@@ -51,6 +51,17 @@ store = PGVector(
 )
 retriever = store.as_retriever()
 
+prompt_template = """As a frequently asked question Bot for my question query, you have the following information about our uploaded documents:
+
+{context}
+
+Please provide the most suitable response for the users question.
+Answer:"""
+
+prompt = PromptTemplate(template=prompt_template, input_variables=["context"])
+system_message_prompt = SystemMessagePromptTemplate(prompt=prompt)
+
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
