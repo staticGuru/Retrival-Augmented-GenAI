@@ -32,6 +32,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
 class Message(BaseModel):
     role: str
     content: str
@@ -62,6 +63,21 @@ prompt = PromptTemplate(template=prompt_template, input_variables=["context"])
 system_message_prompt = SystemMessagePromptTemplate(prompt=prompt)
 
 
+def create_messages(conversation):
+    return [
+        ROLE_CLASS_MAP[message.role](content=message.content)
+        for message in conversation
+    ]
+
+
+def format_docs(docs):
+    formatted_docs = []
+    for doc in docs:
+        formatted_doc = "Source: " + doc.metadata["source"]
+        formatted_docs.append(formatted_doc)
+    return "\n".join(formatted_docs)
+
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -70,3 +86,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.post("/ai_service/{conversation_id}")
+async def service3(conversation_id: str, conversation: Conversation):
+    query = conversation.conversation[-1].content
+    docs = retriever.get_relevant_documents(query=query)
+    docs = format_docs(docs=docs)
+
+    prompt = system_message_prompt.format(context=docs)
+    messages = [prompt] + create_messages(conversation=conversation.conversation)
+
+    result = chat(messages)
+    return {"id": conversation_id, "reply": result.content}
