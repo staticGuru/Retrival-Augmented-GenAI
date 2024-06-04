@@ -27,3 +27,38 @@ class Message(BaseModel):
 
 class Conversation(BaseModel):
     conversation: List[Message]
+
+@app.get("/backend_service/{conversation_id}")
+async def get_conversation(conversation_id: str):
+    logger.info(f"Retrieving initial id {conversation_id}")
+    existing_conversation_json = r.get(conversation_id)
+    if existing_conversation_json:
+        existing_conversation = json.loads(existing_conversation_json)
+        return existing_conversation
+    else:
+        return {"error": "Conversation not found"}
+    
+
+
+@app.post("/backend_service/{conversation_id}")
+async def service2(conversation_id: str, conversation: Conversation):
+    logger.info(f"Sending Conversation with ID {conversation_id} to OpenAI")
+    existing_conversation_json = r.get(conversation_id)
+    if existing_conversation_json:
+        existing_conversation = json.loads(existing_conversation_json)
+    else:
+        existing_conversation = {"conversation": [{"role": "system", "content": "You are a helpful assistant and you can answer to my queries based on the given vector data"}]}
+
+    existing_conversation["conversation"].append(conversation.dict()["conversation"][-1])
+    
+
+    response = requests.post(f"http://ai_service:80/ai_service/{conversation_id}", json=existing_conversation)
+    response.raise_for_status()
+    assistant_message = response.json()["reply"]
+
+    existing_conversation["conversation"].append({"role": "assistant", "content": assistant_message})
+
+    r.set(conversation_id, json.dumps(existing_conversation))
+
+    return existing_conversation
+
