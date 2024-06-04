@@ -7,3 +7,11 @@ from langchain_community.document_loaders import DirectoryLoader, TextLoader
 load_dotenv(find_dotenv())
 
 embeddings = OpenAIEmbeddings()
+
+loader = DirectoryLoader(
+    "./CUSTOM_DATA", glob="**/*.txt", loader_cls=TextLoader, show_progress=True
+)
+documents = loader.load()
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+docs = text_splitter.split_documents(documents)
+
