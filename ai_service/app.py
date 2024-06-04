@@ -44,6 +44,13 @@ class Conversation(BaseModel):
 embeddings = OpenAIEmbeddings()
 chat = ChatOpenAI(temperature=0)
 
+store = PGVector(
+    collection_name=COLLECTION_NAME,
+    connection_string=CONNECTION_STRING,
+    embedding_function=embeddings,
+)
+retriever = store.as_retriever()
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
