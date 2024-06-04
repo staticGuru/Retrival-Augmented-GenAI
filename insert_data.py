@@ -5,3 +5,5 @@ from langchain_community.vectorstores import PGVector
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 
 load_dotenv(find_dotenv())
+
+embeddings = OpenAIEmbeddings()
