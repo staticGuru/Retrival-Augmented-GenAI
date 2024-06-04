@@ -9,3 +9,5 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
+r = redis.Redis(host='redis', port=6379, db=0)
