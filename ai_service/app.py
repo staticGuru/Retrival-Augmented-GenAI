@@ -32,6 +32,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+class Message(BaseModel):
+    role: str
+    content: str
+
+
+class Conversation(BaseModel):
+    conversation: List[Message]
+
 
 
 app = FastAPI()
