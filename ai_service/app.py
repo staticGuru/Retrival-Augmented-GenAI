@@ -41,6 +41,8 @@ class Conversation(BaseModel):
     conversation: List[Message]
 
 
+embeddings = OpenAIEmbeddings()
+chat = ChatOpenAI(temperature=0)
 
 app = FastAPI()
 app.add_middleware(
