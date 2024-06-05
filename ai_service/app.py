@@ -17,7 +17,6 @@ from langchain.prompts import (
     SystemMessagePromptTemplate,
 )
 
-
 ROLE_CLASS_MAP = {"assistant": AIMessage, "user": HumanMessage, "system": SystemMessage}
 
 load_dotenv(find_dotenv())
@@ -31,7 +30,6 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 logger = logging.getLogger(__name__)
-
 
 class Message(BaseModel):
     role: str
