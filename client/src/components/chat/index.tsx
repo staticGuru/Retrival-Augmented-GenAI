@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import { MESSAGE_ROLES } from "../../utils/constants";
 import { FaUser, FaRobot } from "react-icons/fa";
+import { messageProps } from "../../types";
 
 export const Chat: FC = () => {
   const [conversation, setConversation] = useState({ conversation: [] });
@@ -27,7 +28,7 @@ export const Chat: FC = () => {
   const generateConversationId = () =>
     "_" + Math.random().toString(36).slice(2, 11);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUserMessage(event.target.value);
   };
 
@@ -69,11 +70,13 @@ export const Chat: FC = () => {
       <h1 className="text-3xl font-bold mb-4 text-white">Ask me Anything!!!</h1>
 
       <div className="flex flex-col p-4 bg-violet-200 rounded shadow w-full space-y-4 h-full">
-        <div className="flex flex-col flex-auto h-full p-6">
+        <div className="flex flex-col flex-auto h-full p-6 overflow-y-auto">
           {conversation.conversation.length > 0 &&
             conversation.conversation
-              .filter((message) => message.role !== MESSAGE_ROLES.SYSTEM)
-              .map((message, index) => (
+              .filter(
+                (message: messageProps) => message.role !== MESSAGE_ROLES.SYSTEM
+              )
+              .map((message: messageProps, index: number) => (
                 <div key={index}>
                   {message.role === MESSAGE_ROLES.ASSISTANT ? (
                     <div className="col-start-1 col-end-8 p-3 rounded-lg">
