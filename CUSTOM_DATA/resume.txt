@@ -1,0 +1,61 @@
+GURUVIGNESH M
+Looking for Fullstack Software Developer roles
+ï guruvignesh-m § staticGuru  9940955768 # vigneshguru274@gmail.com * Chennai, India
+EXPERIENCE
+Software Development Engineer
+Kissflow (SaaS)
+z March2023–Present * Hybrid,Chennai,India
+• Enhanced user engagement by 90% by developing AI-driven data field rec- ommendation sections using OpenAI API endpoints. Extracted data from model responses to optimize form usability.
+• Significantly improved user performance by integrating customization for the 7th most used widget in the Kissflow workspace. Successfully managed migrations for approximately 10,000+ accounts.
+• Facilitated seamless connectivity for external customers by developing data connections to their MySQL and Microsoft SQL server databases. Boost- ing user engagement by 25% and reducing data retrieval times by 50%.
+• Collaborated with the design team to enhance the functionality of low- code and no-code applications by optimizing the metadata recursion func- tion, leading to a 60% increase in efficiency and overall platform usability.
+• Developed micro-frontend architecture to modularize the frontend appli- cation, resulting in improved scalability by 100% and maintainability.
+Associate Software Engineer
+Ewall
+z May2021–Feb2023
+• Led the development of React Native mobile applications, focused on 1:1
+video-based educational content.
+• Optimized video player performance by implementing streaming capabili- ties in Node.js, resulting in a 50% reduction in initial render time compared to previous applications.
+• Integrated the role-based access management (RBAC) for 3 roles such as Users, Administrators, and Super Administrators in the backend of our mo- bile application.
+• Restructured PostgreSQL database items by reorganizing video files from array format to separate nodes(hashmap), resulting in a 70% improvement in Sequelize ORM query performance.
+Computer Vision Software Engineer, Intern
+First Tech Challenge (FTC)
+z May2019–Aug2019 * Remote
+• Developed and programmed motor control systems using OpenCV detec- tion and ultrasonic sensor data, enhancing rover maneuverability and preci- sion by 30%.
+• Implemented object detection algorithms by converting images to grayscale, increasing the rover’s obstacle detection accuracy by 40%.
+• Leveraged Raspberry Pi as the central controller, integrating various sen- sors and algorithms, resulting in a 30% reduction in processing time and decision-making for autonomous navigation.
+PROJECTS
+RAG Application Development
+Tech used: Python, Docker, FastAPI, Microservices, React, Pandas, Redis, NumPy, Langchain, PGVector DB
+• Utilized Hugging Face, Langchain and Llama-Index as LLM models to gen-
+erate embeddings, resulting in a 50% reduction in costs attributed to their open-source nature.
+• Established 2 types of databases such as Redis to store the chat info and PostgreSQL vector database (PGVector) to store vector embeddings.
+• Orchestrated microservices architecture, overseeing deployment and oper- ation of all 3 services within Docker containers.
+EDUCATION
+B.E. in Automobile Engineering
+Anna University (MIT Campus)
+z June2017–March2021
+Summer School on Machine Learning
+Anna University(MIT Campus)
+z Jun2018–July2018
+Gained exposure to various machine learning
+algorithms and best practices.
+SKILLS
+• Frontend: HTML, CSS, React, Next.js, Figma, XD, Streamlit, MARN, MUI
+• Backend: Node.js, Express, Python-(Flask, FastAPI), SQL, Microservices, Distributed Systems, Graphql, Rest API, Sequelize
+• DevOps: AWS, Docker, Git, AWS Amplify, Fire- base, GCP, EC2, DynamoDB
+• Datastore: MySQL, PostgreSQL, MongoDB, Redis, DynamoDB, S3, ChromaDB, Pinecone, PGVector
+• AI/ML Stack: OpenAI, Huggingface, Ollama, Langchain, LLamaIndex, TensorFlow, Keras, NumPy, Pandas, Natural Language Processing, model Fine tunning
+• Problem Solving: Data Structures and Algorithms OPEN-SOURCE
+DocsGPT
+§ arc53/DocsGPT
+• Contributed to the DocsGPT repository by de- veloping and integrating a feature to rename chat rooms, enhancing user experience and interface customization.
+• Created an auto-generation feature for chat room names based on chat context, leveraging natural language processing techniques to im- prove usability and efficiency.
+• Developed functionality to generate relevant question suggestions based on chat context, used machine learning models to enhance user engagement and interaction.
+ACHIEVEMENTS
+ LeetCode https://leetcode.com/u/StaticGuru/
+Solved more than 100+ questions.
+¢ GeeksforGeeks GFG profile
+Solved more than 80+ quality questions
+   * Chennai,India
+   
