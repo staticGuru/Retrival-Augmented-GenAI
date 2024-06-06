@@ -8,7 +8,7 @@ shift
 cmd="$@"
 
 until PGPASSWORD=admin psql -h postgres -U admin -d microvectordb -c '\q'; do
-  >&2 echo "Postgres is unavailable - sleeping"
+  >&2 echo "postgres is unavailable - sleeping"
   sleep 1
 done
 
