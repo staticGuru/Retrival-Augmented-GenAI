@@ -89,8 +89,11 @@ app.add_middleware(
 @app.post("/ai_service/{conversation_id}")
 async def service3(conversation_id: str, conversation: Conversation):
     query = conversation.conversation[-1].content
-    docs = retriever.get_relevant_documents(query=query)
+    print("query: ", query)
+    docs = retriever.invoke(query)
+    print("docs1:",docs)
     docs = format_docs(docs=docs)
+    print("docs:",docs)
 
     prompt = system_message_prompt.format(context=docs)
     messages = [prompt] + create_messages(conversation=conversation.conversation)
